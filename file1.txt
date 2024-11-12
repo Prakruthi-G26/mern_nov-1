@@ -1,3 +1,12 @@
 const variables are static and cannot be changed throghout the program
 Reduce Function- reduces the number of elements of array by applying sum or multiplication on it
 json-javascript object notation in form key value pairs
+mongodb
+db.collection_name.insertMany({values})
+.insertOne(object)
+.insertOne({values})
+.deleteMany([{condition}])
+.deleteOne({any value})
+.updateOne({any value},{$set:{change}})
+.updateMany({any value},{$inc:{change}})
+.find({any value})
