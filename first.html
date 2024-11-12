@@ -13,20 +13,35 @@
     (password should not visible while typing),submit button
 2. create portfolio with name,your img and your info-->
         <p id="empty"></p>
-        <button id="click" onclick="vari()">click here</button>
+        
+        <!--<button id="click" onclick="vari()">click here</button>-->
+        <button id="email" onclick="email()">email id</button>
+        <button id="phone number" onclick="pn()">phone number</button>
+        <p id="demo"></p>
         <script>
             var x="10";
+            let y;
             const a=(number)=>{ 
                 number*2
                 number*3;
                 number*4;
             }
+            
             function vari (){
                 let x=10;
                 x=20;
                 document.getElementById("empty").textContent = x;
             }
+            function email(){
+                var email="prakruthi9437@gmail.com"
+                document.getElementById("email").textContent = email;
+            }
+            function pn(){
+                let x=9900618858;
+                document.getElementById("empty").textContent = x;
+            }
             console.log("outside block",x);
+            console.log("outside block",y);
             document.getElementById("click").addEventListener("click",
                 function(){
                     let x=10;
@@ -34,6 +49,26 @@
                     document.getElementById("empty").textContent = x;
                 }
             );
+            document.getElementById("email").addEventListener("email",
+                ()=>{
+                    var email="prakruthi9437@gmail.com"
+                    document.getElementById("empty").textContent = email;
+                }
+            );
+            document.getElementById("phone number").addEventListener("phone number",
+                ()=>{
+                    let x=9900618858;
+                    document.getElementById("phone number").textContent = x;
+                }
+            );
+        </script>
+        <script>
+            const arr=[10,12,15,16];
+            const newArr=[];
+            arr.forEach(number=>{
+                newArr.push(number*number);
+            });
+            document.getElementById("demo").innerHTML=newArr;
         </script>
     </body>
 </html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>objects properties</title>
+    </head>
+
+    <body>
+        <p id="map"></p>
+        <p id="filter"></p>
+        <p id="array"></p>
+        <p id="accumulator"></p>
+        <button id="reduce">Reduce()</button>
+        <script>
+            const arr=[15,22,34,45,78];
+            const newArr6=arr.map(function even(number){
+                number => number* 2});
+            const newArr=arr.map(number => number* 2);
+            document.getElementById("map").innerHTML=newArr;
+        </script>
+        <script>
+            const arr1=[1,3,2,4,5];
+            const newArr1=arr1.filter(number => number % 2 === 0);
+            document.getElementById("filter").innerHTML=newArr1;
+        </script>
+        <script>
+            const arr2=[4,6,7,8,9,0];
+            document.getElementById("array").innerHTML=arr2;
+            const newArr2=arr2.reduce((accumulator, number)=> accumulator+number,0);
+            console.log(newArr2)
+            document.getElementById("reduce").addEventListener("click", ()=>{
+                document.getElementById("accumulator").innerHTML=newArr2;});
+        </script>
+        <script>
+            const arr3=[4,6,5,7,3,1];
+            const newArr3=arr3.map(number => number*number*number);
+            document.getElementById("map").innerHTML=newArr3;
+        </script>
+        <script>
+            const arr4=[5,7,8,6,9,4,3];
+            const newArr4=newArr3.filter(number => number % 2 != 0);
+            document.getElementById("filter").innerHTML=newArr4;
+        </script>
+        <script>
+            const cart=[{name:"laptop",price:50000},{name:"phone",price:12000},{name:"tablet",price:8000}];
+            const priceArr=cart.reduce((accumulator, item)=> accumulator+item.price,0);
+            console.log(priceArr)
+            document.getElementById("reduce").addEventListener("click", ()=>{
+                document.getElementById("accumulator").innerHTML=priceArr;});
+        </script>
+    </body>
+</html>

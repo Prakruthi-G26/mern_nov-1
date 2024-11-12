@@ -1,1 +1,3 @@
-
+const variables are static and cannot be changed throghout the program
+Reduce Function- reduces the number of elements of array by applying sum or multiplication on it
+json-javascript object notation in form key value pairs
