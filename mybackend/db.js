@@ -1,4 +1,4 @@
-const mongoose=require("mongoose");
+const mongoose=require('mongoose');
 const url="mongodb://localhost:27017/trainer";
 const userSchema=new mongoose.Schema({
     name:String,
@@ -7,7 +7,7 @@ const userSchema=new mongoose.Schema({
 const User=mongoose.model('user',userSchema);
 async function main(){
     try{
-        await mongoose.connect(url,{userNewUrlParser:true,userUnifiedTopology:true});
+        await mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology:true});
         console.log('connected to mongodb');
         //first user
         const user=new User({name:"alice",age:20});
@@ -19,16 +19,16 @@ async function main(){
         const user1=new User({name:"emily",age:25});
         await user1.save();
         console.log("user saved: ",user1);
-        const users1=await User1.find({});
+        const users1=await User.find({});
         console.log("Found users: ",users1);
         //third user
         const user2=new User({name:"john",age:40});
         await user2.save();
         console.log("user saved: ",user2);
-        const users2=await User2.find({});
+        const users2=await User.find({});
         console.log("Found users: ",users2);
     }
     finally{
-        
+        await mongoose.disconnect();
     }
-}
+}main().catch(console.error);
