@@ -1,5 +1,5 @@
 const product = require('../model1/module/product');
-exports.createProduct=async(req,res)=>{
+const createProduct=async(req,res)=>{
     try{
         const p=new product(req.body);
         const savedProduct=await p.save();
@@ -8,3 +8,4 @@ exports.createProduct=async(req,res)=>{
         res.status(400).json({message:error.message});
     }
 };
+module.exports = createProduct;

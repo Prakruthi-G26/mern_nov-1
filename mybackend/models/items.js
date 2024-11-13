@@ -8,4 +8,4 @@ const itemSchema=new mongoose.Schema({
     price:{type:Number,required:true}
 });
 
-module.exports=mongoose.model('item',itemSchema);
+module.exports=mongoose.model('Item',itemSchema);
