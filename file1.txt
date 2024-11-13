@@ -11,3 +11,4 @@ db.collection_name.insertMany({values})
 .updateMany({any value},{$inc:{change}})
 .find({any value})
 https://github.com/Mona5789/MONA_NIE_MERN_STACK
+git push origin main=to push all updated files to github repo
