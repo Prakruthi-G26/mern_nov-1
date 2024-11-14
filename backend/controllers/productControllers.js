@@ -8,4 +8,12 @@ const createProduct=async(req,res)=>{
         res.status(400).json({message:error.message});
     }
 };
+exports.getAllItems = async (req, res) => {
+			try {
+				const items = await product.find();
+				res.status(200).json(items);
+			} catch (error) {
+	    res.status(500).json({ message: error.message });   
+    }
+};
 module.exports = createProduct;
