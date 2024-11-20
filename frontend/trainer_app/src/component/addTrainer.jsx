@@ -16,11 +16,11 @@ function AddTrainer({ onAddTrainer}) {
       trainer_name: trainerName,
       trainer_location: trainerLocation,
       trainer_skills: trainerSkills,
-      trainer_phone: trainerPhone
+      trainer_phoneNumber: trainerPhone
     };
 
     try {
-      const response = await axios.post('http://127.0.0.1:3000/api/trainers/', newTrainer);
+      const response = await axios.post('http://localhost:3000/api/trainers/', newTrainer);
       
       if (response.status === 201) {
         onAddTrainer(response.data);  // Update the parent component if needed
@@ -34,27 +34,28 @@ function AddTrainer({ onAddTrainer}) {
       console.error("Error adding trainer:", error);
       alert("An error occurred while adding the trainer.");
     }
+
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add Trainer</h2>
+      <h2>Add Trainer</h2><br></br>
       <div className="mb-3 row">
         <label className="col-sm-2 col-form-label">Trainer Name:</label>
         <input type="text" className="form-control" value={trainerName} onChange={(e) => setTrainerName(e.target.value)} required />
-      </div>
+      </div><br></br>
       <div className="mb-3 row">
         <label className="col-sm-2 col-form-label">Trainer Location:</label>
         <input type="text" className="form-control" value={trainerLocation} onChange={(e) => setTrainerLocation(e.target.value)} required />
-      </div>
+      </div><br></br>
       <div className="mb-3 row">
         <label className="col-sm-2 col-form-label">Trainer Skills:</label>
         <input type="text" className="form-control" value={trainerSkills} onChange={(e) => setTrainerSkills(e.target.value)} required />
-      </div>
+      </div><br></br>
       <div className="mb-3 row">
         <label className="col-sm-2 col-form-label">Trainer Phone:</label>
         <input type="Number" className="form-control" value={trainerPhone} onChange={(e) => setTrainerPhone(e.target.value)} required />
-      </div>
+      </div><br></br>
       <button type="submit" className="btn btn-primary">Add Trainer</button>
     </form>
   );

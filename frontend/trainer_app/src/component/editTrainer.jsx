@@ -8,18 +8,27 @@ function EditTrainer({ trainers, onUpdateTrainer }) {
   console.log("Trainer List: ", trainers);
   
   // Find the trainer by ID
-  const trainer = trainers.find((trainer) => trainer._id === parseInt(id));
-
+  const trainer = trainers.find((trainer) => trainer._id === id);
+    console.log("trainer after filter: ", trainer)
   // Handle case if trainer is not found
   if (!trainer) {
     return <div>Trainer not found!</div>;
   }
-
+  console.log("trainer_name: ", trainer.trainer_name);
   // Initialize the state with the current trainer's data
-  const [trainerName, setTrainerName] = useState(trainer.trainer_name);
-  const [trainerLocation, setTrainerLocation] = useState(trainer.trainer_location);
-  const [trainerSkills, setTrainerSkills] = useState(trainer.trainer_skills);
-  const [trainerPhone, setTrainerPhone] = useState(trainer.trainer_phone);
+  const [trainerName, setTrainerName] = useState('');
+  const [trainerLocation, setTrainerLocation] = useState('');
+  const [trainerSkills, setTrainerSkills] = useState('');
+  const [trainerPhone, setTrainerPhone] = useState('');
+  console.log("trainer_name: ", trainerName);
+  useEffect(() => {
+    if (trainer) {
+      setTrainerName(trainer.trainer_name);
+      setTrainerLocation(trainer.trainer_location);
+      setTrainerSkills(trainer.trainer_skills);
+      setTrainerPhone(trainer.trainer_phoneNumber);
+    }
+  }, [trainer]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,9 +39,9 @@ function EditTrainer({ trainers, onUpdateTrainer }) {
       trainer_name: trainerName,
       trainer_location: trainerLocation,
       trainer_skills: trainerSkills,
-      trainer_phone: trainerPhone,
+      trainer_phoneNumber: trainerPhone,
     };
-
+    console.log("updatedTrainer: ", updatedTrainer)
     // Call the function to update the trainer in the parent component
     onUpdateTrainer(updatedTrainer);
 
